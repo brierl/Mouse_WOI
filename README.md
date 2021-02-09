@@ -82,3 +82,5 @@ i.	regcorr.m
 a.	highpass.m
 b.	lowpass.m
 12.	check_mvmt.m
+
+SVR/calc_svr.m and FC/calc_fc.m added 2/8/21 to calculate MFC and FC maps, respectively. 
