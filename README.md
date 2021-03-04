@@ -103,6 +103,7 @@ a.	FWHM_SpAut.m
 a.	overlaymouse.m
 22.	FC_Matrix_ttest.m
 23.	visualize_fc_ttest_matrix.m
+
 MOUSE_MASTER_BILAT
 24.	calc_bilateral.m
 a.	CalcRasterSeedsUsed.m
@@ -119,6 +120,7 @@ a.	FWHM_SpAut.m
 29.	BILAT_FC_ttest.m
 30.	visualize_bilat_fc_ttest.m
 a.	overlaymouse.m
+
 MOUSE_MASTER_SVR
 31.	calc_svr.m
 32.	visualize_svr.m
@@ -130,6 +132,7 @@ a.	FWHM_SpAut.m
 36.	SVR_ttest.m
 37.	visualize_svr_ttest.m
 a.	overlaymouse.m
+
 MOUSE_MASTER_SPECTRAL
 38.	calc_fft.m
 39.	visualize_fft.m
@@ -147,6 +150,7 @@ a.	FWHM_SpAut.m
 49.	FFT_MAP_ttest.m
 50.	visualize_fft_map_ttest.m
 a.	overlaymouse.m
+
 MOUSE_MASTER_NVC
 51.	NVC_bypixel.m
 52.	visualize_nvc.m
