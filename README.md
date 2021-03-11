@@ -9,14 +9,18 @@ Mouse_Master*.m:  Wrapper scripts that perform various types of analysis. Each b
 To get started, edit line 7 shown below to be the path to the main directory of the software. 
 
 Edit line 10 to excel file name (excel file explained below).
+
 Edit line 11 to rows within the excel file to process.
+
 image_system_info.m on line 23 is set up for imaging systems ‘fcOIS3’ and ‘fcOIS2’… Specify in System field in excel file, explained below. If you want to run data off a different imaging system, edit image_system_info.m with new optical instrument properties (outlined in image_system_info.m).
-Extras
-Seeds-R01-Revised.mat: 26 Canonical seeds corresponding to Olfactory, Frontal, Cingulate, Motor, Somatosensory, Retrosplenial, Visual, Auditory, and Parietal cortices.
+
+Extras:  
+Seeds-R01-Revised.mat: 26 Canonical seeds corresponding to Olfactory, Frontal, Cingulate, Motor, Somatosensory, Retrosplenial, Visual, Auditory, and Parietal cortices.  
 GOOD_AFF_WL.mat: White light image for overlaying results. Affine transformed.
-Excel file:
-Date: YYMMDD format
-Mouse: Alphanumeric name per mouse
+
+Excel file:  
+Date: YYMMDD format. 
+Mouse: Alphanumeric name per mouse. 
 Session_Type: ‘fc’ for resting state or ‘stim’
 Run: imaging run numbers. Separate by commas e.g. 1,2,3…
 System: Imaging system data is collected on. E.g. ‘fcOIS3’ or ‘fcOIS2’. 
