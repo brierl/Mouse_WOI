@@ -19,7 +19,7 @@ Seeds-R01-Revised.mat: 26 Canonical seeds corresponding to Olfactory, Frontal, C
 GOOD_AFF_WL.mat: White light image for overlaying results. Affine transformed.
 
 Excel file:  
-Date: YYMMDD format. 
+Date: YYMMDD format   
 Mouse: Alphanumeric name per mouse. 
 Session_Type: ‘fc’ for resting state or ‘stim’
 Run: imaging run numbers. Separate by commas e.g. 1,2,3…
