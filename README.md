@@ -3,9 +3,11 @@ Mouse wide-field optical imaging processing toolbox
 
 This software is to be used to process mesoscopic mouse wide-field optical data. Assumes that data is an image stack, pixels x pixels x frames. Please contact Lindsey Brier with any questions/potential bugs: brierl@wustl.edu. Last updated 3/11/21 . Being currently updated for high resolution scans.
 
-GitHub5\
+## GitHub5 (version 5)
 Mouse_Master*.m:  Wrapper scripts that perform various types of analysis. Each begin the same, Mouse_Master_Proc.m is used as an example:
+
 To get started, edit line 7 shown below to be the path to the main directory of the software. 
+
 Edit line 10 to excel file name (excel file explained below).
 Edit line 11 to rows within the excel file to process.
 image_system_info.m on line 23 is set up for imaging systems ‘fcOIS3’ and ‘fcOIS2’… Specify in System field in excel file, explained below. If you want to run data off a different imaging system, edit image_system_info.m with new optical instrument properties (outlined in image_system_info.m).
