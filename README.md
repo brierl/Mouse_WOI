@@ -49,7 +49,8 @@ StD cutoff: number of standard deviations above the mean to threshold GVTD trace
 Option: Hgb correction option. Options either ratio or ex-em. Example =ex-em  
 
 Notes:  
-***For averaging purposes (later), format excel documents so all mice that are going to be averaged together are in sequential lines. Mice in different groups should be separated by at least one line.***
+***For averaging purposes (later), format excel documents so all mice that are going to be averaged together are in sequential lines. Mice in different groups should be separated by at least one line.  
+Currently being updated to include movie scripts...***
 
 ### Function List (All wrappers):   
 1.	excel_reader.m  
