@@ -18,6 +18,8 @@ excelrows=[3 4]; %EDIT lines corresponding to mice to process from excel sheet
 [mice,group_index]=excel_reader(database,excelrows); %reads excel sheet, make struct "mice" with necessary filename info
 
 seedcenter=cell2mat(struct2cell(load('Seeds-R01-Revised','seedcenter'))); %final seeds for FC analysis
+region=load('Seeds-R01-Revised','regions'); %regions for seeds for FC matrix enrichment
+regions=region.regions;
 WL=cell2mat(struct2cell(load('GOOD_AFF_WL'))); %final WL for plotting
 
 [oi,seedcenter,WL]=image_system_info(seedcenter,WL,mice); %grab optical instrument specific properties
@@ -122,9 +124,53 @@ for q=1:length(mice(1).bandstr) % loop through different bandpass filter options
     [tmap,p1,h1]=FC_Matrix_ttest(Rs_ms_group,group_index,mice,oi); %perform seed wise t-tests on FC matrices
     %save FC matrix stats
     save([mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgFC_ttest_Matrix'],'tmap','p1','h1')
+    
+    bfc=size(tmap,1)*size(tmap,1)/2-size(tmap,1)/2; %figure out bonferroni correction factor
 
-    [fhandle]=visualize_fc_ttest_matrix(tmap,p1,q,mice,oi); %visualize FC matrix stats
+    [fhandle]=visualize_fc_ttest_matrix(tmap,p1,q,mice,oi,bfc); %visualize FC matrix stats
     output=[mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgStats_Matrix.jpg'];
+    print (fhandle,'-djpeg', '-r300',output); %save image
+    close all
+    
+end
+
+%perform matrix enrichment on group average FC matrices for each
+%bandpass filter setting. Visualize results. Matrices only
+for q=1:length(mice(1).bandstr) % loop through different bandpass filter options
+    disp('performing enrichment...')
+    
+    % load data
+    load([mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgFC'],'Rs_ms_group') % z values
+    
+    [ematrix_ms_group,ematrix]=prep_matrix_simple(Rs_ms_group,oi,regions); %perform enrichment on FC matrices
+    %save enriched FC matrix
+    save([mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgFC_enriched_Matrix'],'ematrix_ms_group','ematrix')
+
+    [fhandle]=visualize_fc_e_matrix(ematrix,mice,q,oi); %visualize enriched FC matrix 
+    for i=1:size(ematrix,4) % must loop through the handles and save a .jpg per mouse group
+        output=[mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgFC_e_Matrix_group' num2str(i) '.jpg'];
+        print (fhandle(1,i),'-djpeg', '-r300',output); %save image
+    end
+    close all
+    
+end
+
+%perform t-testing (one sample or between groups) on enriched matrices for each
+%bandpass filter setting. Visualize results. Matrices only
+for q=1:length(mice(1).bandstr) % loop through different bandpass filter options
+    disp('performing t-tests on enriched FC matrices...')
+    
+    % load data
+    load([mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgFC_enriched_Matrix'],'ematrix_ms_group') %z values
+    
+    [tmap,p1,h1]=FC_e_Matrix_ttest(ematrix_ms_group,group_index,mice,oi); %perform seed wise t-tests on enriched FC matrices
+    %save enriched FC matrix stats
+    save([mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgFC_ttest_e_Matrix'],'tmap','p1','h1')
+
+    bfc=(length(regions)*length(regions)/2+length(regions)/2); %calculate bonferroni correction factor
+
+    [fhandle]=visualize_fc_ttest_e_matrix(tmap,p1,q,mice,oi,bfc); %visualize enriched FC matrix stats
+    output=[mice(1).outname '-Affine_GSR_' char(mice(1).bandstr(q)) '_AvgStats_e_Matrix.jpg'];
     print (fhandle,'-djpeg', '-r300',output); %save image
     close all
     
