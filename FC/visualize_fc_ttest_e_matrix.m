@@ -1,6 +1,6 @@
-function [fhandle]=visualize_fc_ttest_matrix(tmap,p1,q,mice,oi,bfc)
-% plotting function for FC matrices, stats results, apply bonferroni
-% correction
+function [fhandle]=visualize_fc_ttest_e_matrix(tmap,p1,q,mice,oi,bfc)
+% plotting function for enriched FC matrices, stats results, perform
+% bonferroni correction
 
 % IN:
 %   tmap: t-values, seeds x seeds x contrasts
@@ -8,7 +8,6 @@ function [fhandle]=visualize_fc_ttest_matrix(tmap,p1,q,mice,oi,bfc)
 %   q: index to grab correct bandpass
 %   mice: struct containing filename and processing info for each mouse
 %   oi: optical instrument properties
-%   bfc: bonferroni correction number of comparisons
 
 % OUT: 
 %   fhandle: figure handle for saving
