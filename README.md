@@ -1,7 +1,7 @@
 # Mouse_WOI
 Mouse wide-field optical imaging processing toolbox
 
-This software is to be used to process mesoscopic mouse wide-field optical data. Assumes that data is an image stack, pixels x pixels x frames. Please contact Lindsey Brier with any questions/potential bugs: brierl@wustl.edu. Last updated 3/3/21 . Being currently updated for high resolution scans.
+This software is to be used to process mesoscopic mouse wide-field optical data. Assumes that data is an image stack, pixels x pixels x frames. Please contact Lindsey Brier with any questions/potential bugs: brierl@wustl.edu. Last updated 3/11/21 . Being currently updated for high resolution scans.
 
 GitHub5\
 Mouse_Master*.m:  Wrapper scripts that perform various types of analysis. Each begin the same, Mouse_Master_Proc.m is used as an example:
@@ -103,6 +103,10 @@ a.	FWHM_SpAut.m
 a.	overlaymouse.m
 22.	FC_Matrix_ttest.m
 23.	visualize_fc_ttest_matrix.m
+24.	prep_matrix_simple.m
+25.	visualize_fc_e_matrix.m
+26.	FC_e_Matrix_ttest.m
+27.	visualize_fc_ttest_e_matrix.m
 
 MOUSE_MASTER_BILAT
 24.	calc_bilateral.m
