@@ -182,3 +182,15 @@ a.	FWHM_SpAut.m
 57.	visualize_nvc_ttest.m  
 a.	overlaymouse.m
 
+#### MOUSE_MASTER_Node   
+24.	calc_fc_node.m  
+25.	visualize_nodes.m  
+26.	FC_Node_AVG.m  
+a.	make_sym_mask.m  
+27.	visualize_fc_node_avg.m  
+a.	overlaymouse.m  
+28.	cluster_threshold.m  
+a.	FWHM_SpAut.m  
+29.	FC_Node_ttest.m  
+30.	visualize_fc_node_ttest.m  
+a.	overlaymouse.m
