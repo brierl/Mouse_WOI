@@ -16,7 +16,7 @@ function [mice,group_index]=excel_reader(database, excelrows)
     for i=excelrows
         
         % grab filename info
-        [~, ~, raw]=xlsread(database,1, ['A',num2str(i),':AA',num2str(i)]); % read in excel row
+        [~, ~, raw]=xlsread(database,1, ['A',num2str(i),':AB',num2str(i)]); % read in excel row
         mice(ii).date=num2str(raw{1}); % date
         mice(ii).msd=raw{2}; % mouse name
         mice(ii).rawloc=raw{8}; % raw data main directory path
@@ -63,6 +63,8 @@ function [mice,group_index]=excel_reader(database, excelrows)
         mice(ii).info.thresh=raw{16}; % threshold for finding activation area
         
         mice(ii).info.fft_block=raw{25}; %seconds for fft block
+        
+        mice(ii).zr=raw{28}; %z threshold
         
         ii=ii+1;
         
