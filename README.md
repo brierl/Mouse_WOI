@@ -83,7 +83,7 @@ d.	detrend_ois.m
 e.	procPixel.m (if hgb imaging)  
 i.	logmean.m  
 ii.	dotspect.m  
-1.	datacondition.m  
+  1.	datacondition.m  
 f.	mean_normalize.m (if fluor imaging)  
 g.	hgb_correction.m (if fluor imaging)  
 h.	logmean_fluor.m (if fluor imaging)  
