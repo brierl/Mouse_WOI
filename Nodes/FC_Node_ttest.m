@@ -46,9 +46,9 @@ function [tmap,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=FC_Node_ttest(same_ms_group,
                         p2(f,g,w)=NaN;
                         tmap2(f,g,w)=NaN;
                     else
-                        [h1(f,g,w),p1(f,g,w),~,stats]=ttest(same_ms_group{1}(f,g,w,:));
+                        [h1(f,g,w),p1(f,g,w),~,stats]=ttest(same_ms_group{1}(f,g,w,:),'alpha',mice(1).alpha);
                         tmap(f,g,w)=stats.tstat;
-                        [h2(f,g,w),p2(f,g,w),~,stats2]=ttest(opp_ms_group{1}(f,g,w,:));
+                        [h2(f,g,w),p2(f,g,w),~,stats2]=ttest(opp_ms_group{1}(f,g,w,:),'alpha',mice(1).alpha);
                         tmap2(f,g,w)=stats2.tstat;
                         clear stats stats2
                     end
@@ -65,9 +65,9 @@ function [tmap,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=FC_Node_ttest(same_ms_group,
                             p2(f,g,w)=NaN;
                             tmap2(f,g,w)=NaN;
                         else
-                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest2(same_ms_group{1}(f,g,w,:),same_ms_group{2}(f,g,w,:));
+                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest2(same_ms_group{1}(f,g,w,:),same_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap(f,g,w)=stats.tstat;
-                            [h2(f,g,w),p2(f,g,w),~,stats2]=ttest2(opp_ms_group{1}(f,g,w,:),opp_ms_group{2}(f,g,w,:));
+                            [h2(f,g,w),p2(f,g,w),~,stats2]=ttest2(opp_ms_group{1}(f,g,w,:),opp_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap2(f,g,w)=stats2.tstat;
                             clear stats stats2
                         end
@@ -83,9 +83,9 @@ function [tmap,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=FC_Node_ttest(same_ms_group,
                             p2(f,g,w)=NaN;
                             tmap2(f,g,w)=NaN;
                         else
-                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest(same_ms_group{1}(f,g,w,:),same_ms_group{2}(f,g,w,:));
+                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest(same_ms_group{1}(f,g,w,:),same_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap(f,g,w)=stats.tstat;
-                            [h2(f,g,w),p2(f,g,w),~,stats2]=ttest(opp_ms_group{1}(f,g,w,:),opp_ms_group{2}(f,g,w,:));
+                            [h2(f,g,w),p2(f,g,w),~,stats2]=ttest(opp_ms_group{1}(f,g,w,:),opp_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap2(f,g,w)=stats2.tstat;
                             clear stats stats2
                         end
@@ -143,4 +143,4 @@ function [tmap,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=FC_Node_ttest(same_ms_group,
 
     h2_cc_rs=reshape(h2_cc,size(opp_ms_group{1},1),size(opp_ms_group{1},2),length(oi.con_num));
   
-end                          
+end  
