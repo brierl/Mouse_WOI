@@ -35,7 +35,7 @@ function [tmap,p1,h1,h1_cc_rs]=SVR_ttest(SVR_ms_group,group_index,isbrain2_aff,t
                                 p1(f,g,h,w)=NaN;
                                 tmap(f,g,h,w)=NaN;
                         else
-                            [h1(f,g,h,w),p1(f,g,h,w),~,stats]=ttest(SVR_ms_group{1}(f,g,h,w,:));
+                            [h1(f,g,h,w),p1(f,g,h,w),~,stats]=ttest(SVR_ms_group{1}(f,g,h,w,:),'alpha',mice(1).alpha);
                             tmap(f,g,h,w)=stats.tstat;
                             clear stats
                         end
@@ -49,7 +49,7 @@ function [tmap,p1,h1,h1_cc_rs]=SVR_ttest(SVR_ms_group,group_index,isbrain2_aff,t
                                 p1(f,g,h,w)=NaN;
                                 tmap(f,g,h,w)=NaN;
                             else
-                                [h1(f,g,h,w),p1(f,g,h,w),~,stats]=ttest2(SVR_ms_group{1}(f,g,h,w,:),SVR_ms_group{2}(f,g,h,w,:));
+                                [h1(f,g,h,w),p1(f,g,h,w),~,stats]=ttest2(SVR_ms_group{1}(f,g,h,w,:),SVR_ms_group{2}(f,g,h,w,:),'alpha',mice(1).alpha);
                                 tmap(f,g,h,w)=stats.tstat;
                                 clear stats
                             end
@@ -62,7 +62,7 @@ function [tmap,p1,h1,h1_cc_rs]=SVR_ttest(SVR_ms_group,group_index,isbrain2_aff,t
                                 p1(f,g,h,w)=NaN;
                                 tmap(f,g,h,w)=NaN;
                             else
-                                [h1(f,g,h,w),p1(f,g,h,w),~,stats]=ttest(SVR_ms_group{1}(f,g,h,w,:),SVR_ms_group{2}(f,g,h,w,:));
+                                [h1(f,g,h,w),p1(f,g,h,w),~,stats]=ttest(SVR_ms_group{1}(f,g,h,w,:),SVR_ms_group{2}(f,g,h,w,:),'alpha',mice(1).alpha);
                                 tmap(f,g,h,w)=stats.tstat;
                                 clear stats
                             end
@@ -104,4 +104,4 @@ function [tmap,p1,h1,h1_cc_rs]=SVR_ttest(SVR_ms_group,group_index,isbrain2_aff,t
 
     h1_cc_rs=reshape(h1_cc,size(SVR_ms_group{1},1),size(SVR_ms_group{1},2),size(h1,3),length(oi.con_num));
   
-end                          
+end  
