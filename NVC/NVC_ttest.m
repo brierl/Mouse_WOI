@@ -45,10 +45,10 @@ function [tmap1,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=NVC_ttest(maxR_ms_group,Lag
                     p2(f,g)=NaN;
                     tmap2(f,g)=NaN;
                 else
-                    [h1(f,g),p1(f,g),~,stats]=ttest(maxR_ms_group{1}(f,g,:));
+                    [h1(f,g),p1(f,g),~,stats]=ttest(maxR_ms_group{1}(f,g,:),'alpha',mice(1).alpha);
                     tmap1(f,g)=stats.tstat;
                     clear stats
-                    [h2(f,g),p2(f,g),~,stats]=ttest(Lag_maxr_ms_group{1}(f,g,:));
+                    [h2(f,g),p2(f,g),~,stats]=ttest(Lag_maxr_ms_group{1}(f,g,:),'alpha',mice(1).alpha);
                     tmap2(f,g)=stats.tstat;
                     clear stats
                 end
@@ -63,10 +63,10 @@ function [tmap1,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=NVC_ttest(maxR_ms_group,Lag
                         p2(f,g)=NaN;
                         tmap2(f,g)=NaN;
                     else
-                        [h1(f,g),p1(f,g),~,stats]=ttest2(maxR_ms_group{1}(f,g,:),maxR_ms_group{2}(f,g,:));
+                        [h1(f,g),p1(f,g),~,stats]=ttest2(maxR_ms_group{1}(f,g,:),maxR_ms_group{2}(f,g,:),'alpha',mice(1).alpha);
                         tmap1(f,g)=stats.tstat;
                         clear stats
-                        [h2(f,g),p2(f,g),~,stats]=ttest2(Lag_maxr_ms_group{1}(f,g,:),Lag_maxr_ms_group{2}(f,g,:));
+                        [h2(f,g),p2(f,g),~,stats]=ttest2(Lag_maxr_ms_group{1}(f,g,:),Lag_maxr_ms_group{2}(f,g,:),'alpha',mice(1).alpha);
                         tmap2(f,g)=stats.tstat;
                         clear stats
                     end
@@ -80,10 +80,10 @@ function [tmap1,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=NVC_ttest(maxR_ms_group,Lag
                         p2(f,g)=NaN;
                         tmap2(f,g)=NaN;
                     else
-                        [h1(f,g),p1(f,g),~,stats]=ttest(maxR_ms_group{1}(f,g,:),maxR_ms_group{2}(f,g,:));
+                        [h1(f,g),p1(f,g),~,stats]=ttest(maxR_ms_group{1}(f,g,:),maxR_ms_group{2}(f,g,:),'alpha',mice(1).alpha);
                         tmap1(f,g)=stats.tstat;
                         clear stats
-                        [h2(f,g),p2(f,g),~,stats]=ttest(Lag_maxr_ms_group{1}(f,g,:),Lag_maxr_ms_group{2}(f,g,:));
+                        [h2(f,g),p2(f,g),~,stats]=ttest(Lag_maxr_ms_group{1}(f,g,:),Lag_maxr_ms_group{2}(f,g,:),'alpha',mice(1).alpha);
                         tmap2(f,g)=stats.tstat;
                         clear stats
                     end
@@ -138,4 +138,4 @@ function [tmap1,p1,h1,h1_cc_rs,tmap2,p2,h2,h2_cc_rs]=NVC_ttest(maxR_ms_group,Lag
 
     h2_cc_rs=reshape(h2_cc,size(Lag_maxr_ms_group{1},1),size(Lag_maxr_ms_group{1},2));
   
-end                          
+end   
