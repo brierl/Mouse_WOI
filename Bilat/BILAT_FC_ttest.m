@@ -34,7 +34,7 @@ function [tmap,p1,h1,h1_cc_rs]=BILAT_FC_ttest(R_ms_group,group_index,isbrain2_af
                         p1(f,g,w)=NaN;
                         tmap(f,g,w)=NaN;
                     else
-                        [h1(f,g,w),p1(f,g,w),~,stats]=ttest(R_ms_group{1}(f,g,w,:));
+                        [h1(f,g,w),p1(f,g,w),~,stats]=ttest(R_ms_group{1}(f,g,w,:),'alpha',mice(1).alpha);
                         tmap(f,g,w)=stats.tstat;
                         clear stats
                     end
@@ -48,7 +48,7 @@ function [tmap,p1,h1,h1_cc_rs]=BILAT_FC_ttest(R_ms_group,group_index,isbrain2_af
                             p1(f,g,w)=NaN;
                             tmap(f,g,w)=NaN;
                         else
-                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest2(R_ms_group{1}(f,g,w,:),R_ms_group{2}(f,g,w,:));
+                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest2(R_ms_group{1}(f,g,w,:),R_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap(f,g,w)=stats.tstat;
                             clear stats
                         end
@@ -61,7 +61,7 @@ function [tmap,p1,h1,h1_cc_rs]=BILAT_FC_ttest(R_ms_group,group_index,isbrain2_af
                             p1(f,g,w)=NaN;
                             tmap(f,g,w)=NaN;
                         else
-                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest(R_ms_group{1}(f,g,w,:),R_ms_group{2}(f,g,w,:));
+                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest(R_ms_group{1}(f,g,w,:),R_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap(f,g,w)=stats.tstat;
                             clear stats
                         end
@@ -99,4 +99,4 @@ function [tmap,p1,h1,h1_cc_rs]=BILAT_FC_ttest(R_ms_group,group_index,isbrain2_af
 
     h1_cc_rs=reshape(h1_cc,size(R_ms_group{1},1),size(R_ms_group{1},2),length(oi.con_num));
   
-end                          
+end  
