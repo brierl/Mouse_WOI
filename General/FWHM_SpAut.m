@@ -42,4 +42,4 @@ else
     row_f(1)=row2(1);
 end
 
-FWHM=2*(row_f(1)-1);
+FWHM=2*(row_f(1)-1)-1;
