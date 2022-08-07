@@ -34,7 +34,7 @@ function [tmap,p1,h1,h1_cc_rs]=FFT_MAP_ttest(fft_image_ms_group,group_index,isbr
                         p1(f,g,w)=NaN;
                         tmap(f,g,w)=NaN;
                     else
-                        [h1(f,g,w),p1(f,g,w),~,stats]=ttest(fft_image_ms_group{1}(f,g,w,:));
+                        [h1(f,g,w),p1(f,g,w),~,stats]=ttest(fft_image_ms_group{1}(f,g,w,:),'alpha',mice(1).alpha);
                         tmap(f,g,w)=stats.tstat;
                         clear stats
                     end
@@ -48,7 +48,7 @@ function [tmap,p1,h1,h1_cc_rs]=FFT_MAP_ttest(fft_image_ms_group,group_index,isbr
                             p1(f,g,w)=NaN;
                             tmap(f,g,w)=NaN;
                         else
-                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest2(fft_image_ms_group{1}(f,g,w,:),fft_image_ms_group{2}(f,g,w,:));
+                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest2(fft_image_ms_group{1}(f,g,w,:),fft_image_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap(f,g,w)=stats.tstat;
                             clear stats
                         end
@@ -61,7 +61,7 @@ function [tmap,p1,h1,h1_cc_rs]=FFT_MAP_ttest(fft_image_ms_group,group_index,isbr
                             p1(f,g,w)=NaN;
                             tmap(f,g,w)=NaN;
                         else
-                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest(fft_image_ms_group{1}(f,g,w,:),fft_image_ms_group{2}(f,g,w,:));
+                            [h1(f,g,w),p1(f,g,w),~,stats]=ttest(fft_image_ms_group{1}(f,g,w,:),fft_image_ms_group{2}(f,g,w,:),'alpha',mice(1).alpha);
                             tmap(f,g,w)=stats.tstat;
                             clear stats
                         end
@@ -99,4 +99,4 @@ function [tmap,p1,h1,h1_cc_rs]=FFT_MAP_ttest(fft_image_ms_group,group_index,isbr
 
     h1_cc_rs=reshape(h1_cc,size(fft_image_ms_group{1},1),size(fft_image_ms_group{1},2),length(oi.con_num));
   
-end                          
+end  
