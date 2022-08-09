@@ -4,7 +4,8 @@ function [threshold]=cluster_threshold(file,pix_x,alpha)
 % a pixel wise false error rate of 0.001
 
 N=pix_x*pix_x; % number of pixels
-FWHM=FWHM_SpAut(file,pix_x); % from spatial autocorrelation
+FWHM=FWHM_ParDer(file,pix_x); % from spatial partial derivatives
+% FWHM=FWHM_SpAut(file,pix_x); % from spatial autocorrelation
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Zth=linspace(2.5,5,500); % Zth=3.09 at i=119, where p_pixel=0.001
@@ -20,7 +21,7 @@ i=1;
 
 for Z=Zth
 
-    Beta=power(gamma(2),2)*power(Z,2)*(4*log(2))/(2*pi*power(FWHM,2));
+    Beta=gamma(2)*power(Z,2)*(4*log(2))/(2*pi*power(FWHM,2));
     prob=1-exp(-1*E(i)*exp(-1*Beta*K)); % P(nmax>k)
 
     prob_thresh_pt05(i)=(1/Beta)*log((-1*E(i))/log(1-0.05)); % K for alpha=0.05      prob_thresh_pt05(119) at command line to find K for Zth=3.09
