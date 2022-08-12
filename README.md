@@ -6,7 +6,7 @@ This software is to be used to process mesoscopic mouse wide-field optical data.
 ## GitHub5 (version 5)
 Mouse_Master*.m:  Wrapper scripts that perform various types of analysis. Each begin the same, Mouse_Master_Proc.m is used as an example:
 
-To get started, edit line 7 shown below to be the path to the main directory of the software. 
+To get started, edit line 7 to be the path to the main directory of the software. 
 
 Edit line 10 to excel file name (excel file explained below).
 
