@@ -44,7 +44,7 @@ filt?: filter data, options either yes or no. Example =yes
 bandnum: doubles specify highpass/lowpass for each bandpass filter. Example = [0.4 4.0; 0.009 0.08]  
 bandstr: strings, comma separated, to label data after bandpass filtering. Need a string for each bandnum pair. Example =pt4-4pt0,pt009-pt08  
 ttest: type of ttest code will perform. Options either 2-sample or paired. Code will recognize if only one group is being analyzed and will perform 1-sample. Example =2-sample  
-alpha: p<alpha will be regarded statistically significant (uncorrected for multiple comparisons). Example =0.05  
+alpha: p<alpha will be regarded statistically significant (uncorrected for multiple comparisons). Example =0.05. Same alpha used for FWER in cluster based analysis.
 Vid fr: framerate for video playback. Example =16.8  
 quality: video quality. Example =25  
 Vid frames: selected frames to put in video, ; separated. Example =1;500  
@@ -112,7 +112,7 @@ e.	matrix_makeover.m
 a.	overlaymouse.m  
 18.	visualize_fc_avg_matrix.m  
 19.	cluster_threshold.m  
-a.	FWHM_SpAut.m  
+a.	FWHM_ParDer.m  
 20.	FC_ttest.m  
 21.	visualize_fc_ttest.m  
 a.	overlaymouse.m  
@@ -135,7 +135,7 @@ a.	make_sym_mask.m
 27.	visualize_bilat_fc_avg.m  
 a.	overlaymouse.m  
 28.	cluster_threshold.m  
-a.	FWHM_SpAut.m  
+a.	FWHM_ParDer.m  
 29.	BILAT_FC_ttest.m  
 30.	visualize_bilat_fc_ttest.m  
 a.	overlaymouse.m
@@ -147,7 +147,7 @@ a.	overlaymouse.m
 34.	visualize_svr_avg.m  
 a.	overlaymouse.m  
 35.	cluster_threshold.m  
-a.	FWHM_SpAut.m  
+a.	FWHM_ParDer.m  
 36.	SVR_ttest.m  
 37.	visualize_svr_ttest.m  
 a.	overlaymouse.m  
@@ -165,7 +165,7 @@ a.	overlaymouse.m
 46.	FFT_ttest.m  
 47.	visualize_fft_avg_ttest.m  
 48.	cluster_threshold.m  
-a.	FWHM_SpAut.m  
+a.	FWHM_ParDer.m  
 49.	FFT_MAP_ttest.m  
 50.	visualize_fft_map_ttest.m  
 a.	overlaymouse.m  
@@ -177,7 +177,7 @@ a.	overlaymouse.m
 54.	visualize_nvc_avg.m  
 a.	overlaymouse.m  
 55.	cluster_threshold.m  
-a.	FWHM_SpAut.m  
+a.	FWHM_ParDer.m  
 56.	NVC_ttest.m  
 57.	visualize_nvc_ttest.m  
 a.	overlaymouse.m
@@ -190,7 +190,7 @@ a.	make_sym_mask.m
 27.	visualize_fc_node_avg.m  
 a.	overlaymouse.m  
 28.	cluster_threshold.m  
-a.	FWHM_SpAut.m  
+a.	FWHM_ParDer.m  
 29.	FC_Node_ttest.m  
 30.	visualize_fc_node_ttest.m  
 a.	overlaymouse.m
