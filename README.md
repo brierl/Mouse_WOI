@@ -18,7 +18,7 @@ Extras:
 Seeds-R01-Revised.mat: 26 Canonical seeds corresponding to Olfactory, Frontal, Cingulate, Motor, Somatosensory, Retrosplenial, Visual, Auditory, and Parietal cortices.  
 GOOD_AFF_WL.mat: White light image for overlaying results. Affine transformed.
 
-Sample data available at: https://figshare.com/account/projects/100193/articles/14204549
+Sample data available at: https://data.mendeley.com/datasets/v3jwyg7rcx/1
 
 Sample excel data sheet included in repository: GitHubDataSheet.xlsx
 
