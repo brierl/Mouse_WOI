@@ -1,19 +1,20 @@
-function [FWHM]=FWHM_ParDer(file,nVx)
+function [FWHM]=FWHM_ParDer(all_contrasts,nVx,isbrain)
 
 % script to calculate the spatial partial derivative FWHM for RFT cluster
 % thresholding
 
 % IN:
-%   file: output of Proc2.m of fully processed broadfield data is loaded to calculate
+%   all_contrasts: fully processed broadfield data is loaded to calculate
 %       spatial partial derivative
+%   nVx: number of pixels in 1 dimension
+%   isbrain: binary brain mask
 
 % OUT:
 %   FWHM: number of pixels in the FWHM
 
-load(file,'all_contrasts_fp','isbrain2')
-isbrain2(isbrain2==0)=NaN;
+isbrain(isbrain==0)=NaN;
 
-con1=squeeze(all_contrasts_fp(:,:,1,96)).*isbrain2; % grab hgb corr gcamp and random frame, apply mask
+con1=squeeze(all_contrasts(:,:,1,96)).*isbrain; % grab hgb corr gcamp and random frame, apply mask
 con1_n=normalize(con1); % normalize data
 
 [Ix, Iy] = gradient(con1_n); % calc partial derivatives across FOV

@@ -1,18 +1,18 @@
-function [threshold]=cluster_threshold(file,pix_x,alpha)
+function [threshold]=cluster_threshold(all_contrasts,alpha,isbrain)
 % script to calculate cluster based threshold for significance (RFT) using
 % a pixel wise false error rate of 0.001
 
 % IN:
-%   file: filename of output of Proc2.m of fully processed broadfield data is loaded to calculate
+%   all_contrasts: fully processed broadfield data is loaded to calculate
 %       spatial partial derivative
-%   pix_x: number of pixels in one direction
-%   alpha: probability alpha
+%   alpha: probability alpha, the overall FWE
+%   isbrain: binary brain mask
 
 % OUT:
 %   threshold: cluster size threshold in number of pixels
 
-N=pix_x*pix_x; % number of pixels
-FWHM=FWHM_ParDer(file,pix_x); % from spatial partial derivatives
+N=size(all_contrasts,1)*size(all_contrasts,2); % number of pixels
+FWHM=FWHM_ParDer(all_contrasts,size(all_contrasts,1),isbrain); % from spatial partial derivatives
 % FWHM=FWHM_SpAut(file,pix_x); % from spatial autocorrelation
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
