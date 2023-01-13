@@ -81,7 +81,7 @@ function [traces, Acts]=calc_stims(all_contrasts2,isbrain2)
         traceROI=(mean(indivROI,1)); %avg across binary mask
         
         %plot response curve
-        framelines= stimon:1/3:stimoff; %1/3 for 3hz stims
+        framelines= stimon:1/3*16.8:stimoff; %1/3 for 3hz stims, 16.8 framerate
         seconds= linspace(0,stimlength,stimlength);
         
         figure(3)
